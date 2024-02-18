@@ -18,7 +18,7 @@ export default function RegisterPage(){
         
         <div className="mt-4 grow flex items-center justify-around">
             <div className ="mb-64">
-            <h1 className="text-4xl text-center mb-4 ">Login</h1>
+            <h1 className="text-4xl text-center mb-4 ">Register</h1>
             <form className="max-w-md mx-auto" onSubmit={registeruser}>
                 <input type="text" placeholder='Name' value ={name} onChange={e=> setName(e.target.value)} />
             <input type="email"  placeholder="yourEmail" value ={email} onChange={e=> setEmail(e.target.value)} />
