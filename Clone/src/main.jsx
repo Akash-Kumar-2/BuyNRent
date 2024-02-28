@@ -8,7 +8,9 @@ import LoginPage from './pages/LoginPage.jsx';
 import Layout from './Layout.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
 import axios from 'axios'
+import { UserContextProvider } from './UserContext.jsx';
 axios.defaults.baseURL='http://localhost:4000';
+axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
   {path :'/',
   element : <Layout/>,
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <UserContextProvider>
     <RouterProvider router={router}/>
+    </UserContextProvider>
   </React.StrictMode>,
 )

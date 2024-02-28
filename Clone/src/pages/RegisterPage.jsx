@@ -6,13 +6,19 @@ export default function RegisterPage(){
     const [email,setEmail] = useState('');
     const [password,setpassword] = useState('');
     
-    function registeruser(e){
+    async function registeruser(e){
         e.preventDefault();
-    axios.post('/register',{
-        name,
-        email,
-        password,
-    });
+        try{
+           
+           await axios.post('/register',{
+                name,
+                email,
+                password,
+        }); 
+     alert("Registration Successfull");
+     }catch(e){
+         alert("Registration Failed");
+     }
     }
     return(
         
