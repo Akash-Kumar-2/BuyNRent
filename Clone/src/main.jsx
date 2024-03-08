@@ -29,7 +29,9 @@ const router = createBrowserRouter([
   element : <AccountPage />,
   children:[
     {
-      path:':subpage',
+      path:':subpage/',
+      children:[{path:':action'}],
+      
     }
   ]
 },
