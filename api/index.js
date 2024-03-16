@@ -4,8 +4,11 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const cookieParser = require('cookie-parser');
 const imageDownloader = require('image-downloader');
+
 const mongoose = require('mongoose');
 const User = require('./models/User.js');
+const Place = require('./models/Place.js')
+
 const multer = require('multer');
 const fs = require('fs');
 
@@ -70,6 +73,7 @@ app.post('/login',async (req,res)=>{
         }
 });
 app.get('/profile',(req,res)=>{
+//     to get user id
     const {token} = req.cookies;
     if(token)
     {
@@ -96,11 +100,14 @@ app.post('/upload-by-link',async (req,res)=>{
     });
     res.json(newName);
 });
+
+// for uploading img from system
 const photosMiddleware = multer({dest:'uploads/'});
 app.post('/upload',photosMiddleware.array('photos',100),(req,res)=>{
     const uploadFiles =[];
     for(let i = 0;i<req.files.length;i++)
     {
+        // providing proper extension for img 
        const {path,originalname} = req.files[i];
        const parts = originalname.split('.');
        const ext = parts[parts.length-1];
@@ -110,4 +117,27 @@ app.post('/upload',photosMiddleware.array('photos',100),(req,res)=>{
     }
 res.json(uploadFiles);
 });
+
+//  to add places.
+app.post('/places',(req,res)=>{
+//     to get user id
+    const {token} = req.cookies;
+    const {
+        title , address ,addPhotos ,description ,perks,
+        extraInfo,checkIn,checkOut,maxGuest
+      } = req.body;
+        jwt.verify(token,jwtSecret,{},async (err,userData)=>{
+            if(err)
+            throw err;
+          const placeDoc = await Place.create({
+            owner : userData.id,
+            title , address ,addPhotos ,description ,perks,
+        extraInfo,checkIn,checkOut,maxGuest
+            });
+            res.json(placeDoc);
+        });
+    
+});
+
+
 app.listen(4000);
