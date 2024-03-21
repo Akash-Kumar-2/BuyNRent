@@ -141,7 +141,7 @@ app.post('/places',(req,res)=>{
 
 //  to display places on places plage
 
-app.get('/places',(req,res)=>{
+app.get('/user-places',(req,res)=>{
     const {token} = req.cookies;
     jwt.verify(token,jwtSecret,{},async (err,userData)=>{
         if(err)
@@ -180,7 +180,9 @@ app.put('/places',async (req,res)=>{
             res.json('ok');
           }
             
-
+app.get('/places',async (req,res)=>{
+     res.json(await Place.find());
+});
 
 });
 });

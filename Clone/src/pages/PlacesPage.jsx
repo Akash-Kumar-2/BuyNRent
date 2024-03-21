@@ -8,7 +8,7 @@ import axios from "axios";
 export default function PlacesPage(){
    const [places,setPlaces] = useState([]);
     useEffect(()=>{
-    axios.get('/places').then(({data})=>{
+    axios.get('/user-places').then(({data})=>{
       setPlaces(data);
     });
    },[]);
@@ -32,6 +32,7 @@ export default function PlacesPage(){
                       
                         {places.photos.length>0  && (
                             <img className="object-cover" src={'http://localhost:4000/uploads/'+places.photos[0]} alt="" />
+                            
                         )}
                       
                    </div>

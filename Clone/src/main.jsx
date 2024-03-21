@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import IndexPage  from './pages/IndexPage.jsx'
 import './index.css'
 // import {BrowserRouter} from 'react-router-dom'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom';
@@ -12,6 +11,7 @@ import { UserContextProvider } from './UserContext.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import PlacesPage from './pages/PlacesPage.jsx';
 import PlacesFormPage from './pages/PlacesFormPage.jsx';
+import IndexPage from './pages/IndexPage.jsx';
 axios.defaults.baseURL='http://localhost:4000';
 axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
