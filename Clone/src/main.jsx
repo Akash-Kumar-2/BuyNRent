@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage.jsx';
 import PlacesPage from './pages/PlacesPage.jsx';
 import PlacesFormPage from './pages/PlacesFormPage.jsx';
 import IndexPage from './pages/IndexPage.jsx';
+import PlacePage from './pages/PlacePage.jsx';
 axios.defaults.baseURL='http://localhost:4000';
 axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 {
   path : '/register',
   element : <RegisterPage />,
+},
+{
+  path:'/place/:id',
+  element:<PlacePage/>
 },
 {
   path : "/account",

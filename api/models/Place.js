@@ -13,7 +13,7 @@ extraInfo: String,
 checkIn:Number,
 checkOut:Number,
 maxGuest:Number,
-
+price:Number,
 });
 
 const PlaceModel = model('Place',placeSchema);
