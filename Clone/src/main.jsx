@@ -13,6 +13,8 @@ import PlacesPage from './pages/PlacesPage.jsx';
 import PlacesFormPage from './pages/PlacesFormPage.jsx';
 import IndexPage from './pages/IndexPage.jsx';
 import PlacePage from './pages/PlacePage.jsx';
+import BookingsPage from './pages/BookingsPage.jsx';
+import BookingPage from './pages/BookingPage.jsx';
 axios.defaults.baseURL='http://localhost:4000';
 axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
 {
   path:'/place/:id',
   element:<PlacePage/>
+},
+{
+  path:'/account/bookings',
+  element:<BookingsPage/>
+},
+{
+  path:'/account/bookings/:id',
+  element:<BookingPage/>
 },
 {
   path : "/account",
