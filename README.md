@@ -12,7 +12,7 @@ To install all the dependencies and modules needed to run the project.
 Runs the app in the development mode.\
 Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
-### For FrontEnd
+### For Backend
 ### `npm index.js`
 
 The page will reload when you make changes.\
